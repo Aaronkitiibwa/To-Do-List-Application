@@ -1,4 +1,5 @@
 const inputBox = document.getElementById("input-box");
+
 const listContainer = document.getElementById("list-container");
 
 function addTask() {
@@ -29,8 +30,21 @@ listContainer.addEventListener(
   false
 );
 
-//localstorage section
+//adding styles to the background whenever task is added
+let button = document.getElementById("task-button");
+let body = document.querySelector("body");
 
+button.addEventListener("click", function (event) {
+  let parent = event.target.parentElement;
+
+  let colors = ["yellow", "orange", "green"];
+
+  let randomIndex = Math.floor(Math.random() * colors.length);
+  parent.target.style.backgroundColor = colors[randomIndex];
+});
+
+//localstorage section
+ 
 function saveData() {
   localStorage.setItem("data", listContainer.innerHTML);
 }
